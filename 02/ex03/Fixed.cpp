@@ -93,25 +93,29 @@ bool Fixed:: operator!=(const Fixed &num) const
 
 Fixed Fixed:: operator+(const Fixed &num)
 {
-	Fixed temp = fix_n + num.fix_n;
+	Fixed temp;
+	temp.fix_n = fix_n + num.fix_n;
 	return (temp);
 }
 
 Fixed Fixed:: operator-(const Fixed &num)
 {
-	Fixed temp = fix_n - num.fix_n;
+	Fixed temp;
+	temp.fix_n = fix_n - num.fix_n;
 	return (temp);
 }
 
 Fixed Fixed:: operator*(const Fixed &num)
 {
-	Fixed temp = toFloat() * num.toFloat();
+	Fixed temp;
+	temp.fix_n = toFloat() * num.toFloat();
 	return (temp);
 }
 
 Fixed Fixed:: operator/(const Fixed &num)
 {
-	Fixed temp = fix_n / num.fix_n;
+	Fixed temp;
+	temp.fix_n = fix_n / num.fix_n;
 	return (temp);
 }
 

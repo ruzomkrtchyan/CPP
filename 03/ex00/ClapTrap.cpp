@@ -8,9 +8,9 @@ ClapTrap::ClapTrap()
 ClapTrap::ClapTrap(std::string name):this->name(name)
 {
 	std::cout << "Init constructor called" << std::endl;
-	Hit_p = other.Hit_p;
-	Energy_p = other.Energy_p;
-	Attack_damage = other.Attack_damage;
+	Hit_p = 10;
+	Energy_p = 10;
+	Attack_damage = 0;
 }
 
 ClapTrap::ClapTrap(ClapTrap &other)
