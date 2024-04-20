@@ -1,6 +1,6 @@
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap()
+ClapTrap::ClapTrap():Hit_p(0), Energy_p(0)
 {
 	std::cout << "Default constructor called" << std::endl;
 }
@@ -38,4 +38,32 @@ ClapTrap& ClapTrap:: operator=(ClapTrap &other)
 ClapTrap::~ClapTrap()
 {
 	std::cout << "Destructor called" << std::endl;
+}
+
+void ClapTrap::attack(const std::string& target)
+{
+	if (Hit_p && Energy_p)
+	{
+		std::cout << "ClapTrap " << this->name << "attacks " << target 
+		<< ", causing " << Attack_damage << "points of damage!" << std::endl;
+		// Hit_p -= Attack_damage;
+		Energy_p--;
+	}
+	std::cout << "You are dead, can't do anything else" << std::endl;
+}
+
+void ClapTrap::takeDamage(unsigned int amount)
+{
+	Attack_damage = amount;
+}
+
+void ClapTrap::beRepaired(unsigned int amount)
+{
+	if (Hit_p && Energy_p)
+	{
+		std::cout << "ClapTrap " << this->name << "gets " << amount << "hit points back" << std::endl;
+		Hit_p += amount;
+		Energy_p--;
+	}
+	std::cout << "You are dead, can't do anything else" << std::endl;
 }
