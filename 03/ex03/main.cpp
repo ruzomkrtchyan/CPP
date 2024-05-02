@@ -1,9 +1,13 @@
-#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 int main()
 {
-    ClapTrap robo("Shnik");
+    ScavTrap    robo("Shnik");
+    // ScavTrap ankap;
+    FragTrap    happy_men("Jiro");
 
+    // ankap.attack("Shnik");
     robo.attack("Odz");
     robo.attack("Hav");
     robo.takeDamage(5);
@@ -13,4 +17,7 @@ int main()
     robo.attack("Kov");
     robo.beRepaired(5);
     robo.takeDamage(3);
+    robo.guardGate();
+    happy_men.highFivesGuys();
+
 }
