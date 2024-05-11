@@ -12,6 +12,9 @@ public:
     DiamondTrap();
     DiamondTrap(std::string _name);
     ~DiamondTrap();
+    
+    void attack();
+    void whoAmI();
 };
 
 

@@ -35,7 +35,7 @@ ClapTrap& ClapTrap:: operator=(ClapTrap &other)
 	return (*this);
 }
 
-ClapTrap::~ClapTrap()
+virtual ClapTrap::~ClapTrap()
 {
 	std::cout << "Destructor called" << std::endl;
 }
