@@ -13,7 +13,7 @@ FragTrap::FragTrap(std::string name):ClapTrap(name)
 	Attack_damage = 30;
 }
 
-FragTrap::FragTrap(FragTrap &other)
+FragTrap::FragTrap(const FragTrap &other)
 {
 	std::cout << "FragTrap Copy consrtuctor called" << std::endl;
 	this->name = other.name;
@@ -22,7 +22,7 @@ FragTrap::FragTrap(FragTrap &other)
 	Attack_damage = other.Attack_damage;
 }
 
-FragTrap& FragTrap:: operator=(FragTrap &other)
+FragTrap& FragTrap:: operator=(const FragTrap &other)
 {
 	std::cout << "FragTrap Copy assignment operator called" << std::endl;
 	if (this != &other)
