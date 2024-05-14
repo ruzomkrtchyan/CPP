@@ -24,12 +24,12 @@ Dog::~Dog()
     std::cout << "Dog destructot called" << std::endl;
 }
 
-std::string Cat::getType()
+std::string Dog::getType() const
 {
     return(type);
 }
 
-void Dog::makesound()
+void Dog::makeSound() const
 {
     std::cout << "Haaf haaaf haaaaf!" << std::endl;
 }

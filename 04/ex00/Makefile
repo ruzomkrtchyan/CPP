@@ -1,7 +1,7 @@
 NAME			= animal
-SRCS			= Animal.cpp Dog.cpp Cat.cpp main.cpp
+SRCS			= $(wildcard *.cpp)
 OBJ_DIR			= obj
-HEADER			= Animal.hpp Dog.hpp Cat.hpp
+HEADER			= $(wildcard *.hpp)
 OBJS			= $(patsubst %.cpp, $(OBJ_DIR)/%.o, $(SRCS))
 CC				= c++ 
 RM				= rm -rf

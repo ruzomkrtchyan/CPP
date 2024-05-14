@@ -24,12 +24,12 @@ Cat::~Cat()
     std::cout << "Cat destructot called" << std::endl;
 }
 
-std::string Cat::getType()
+std::string Cat::getType() const
 {
     return(type);
 }
 
-void Cat::makesound()
+void Cat::makeSound() const
 {
     std::cout << "Meoow meooow!" << std::endl;
 }
