@@ -4,22 +4,26 @@
 
 int main() 
 {
-    const Animal* meta = new Animal(); 
-    const Animal* j = new Dog();
+    const Animal* j = new Dog(); 
     const Animal* i = new Cat();
-    const WrongAnimal* fake = new WrongCat();
+    Animal **mix = new Animal*[100];
 
-    std::cout << j->getType() << " " << std::endl; 
-    std::cout << i->getType() << " " << std::endl; 
-    i->makeSound(); //will output the cat sound! 
-    j->makeSound();
-    meta->makeSound();
-    fake->makeSound();
-
-    delete meta;
-    delete j;
+    delete j;//should not create a leak delete i;
     delete i;
-    delete fake;
+    for (size_t i = 0; i < 50; i++)
+        mix[i] = new Cat();
+    for (size_t i = 50; i < 100; i++)
+        mix[i] = new Dog();
+    for (size_t i = 0; i < 100; i++)
+    {
+        mix[i]->makeSound();
+    }
+    for (size_t i = 0; i < 100; i++)
+    {
+        delete mix[i];
+    }
 
-    return 0;  
+    delete []mix;
+    
+	return (0);
 }

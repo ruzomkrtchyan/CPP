@@ -2,9 +2,12 @@
 #define CAT_HPP
 
 #include "Animal.hpp"
+#include "Brain.hpp"                                                                          
 
 class Cat : public virtual Animal 
 {
+    private:
+        Brain *head;
     protected:
         std::string type;
     public:

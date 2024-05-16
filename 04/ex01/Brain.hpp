@@ -12,15 +12,11 @@ class Brain
         Brain(const Brain &other);
         Brain& operator=(const Brain &other);
         ~Brain();
+
+        void setIdeas(int i, std::string &newid);
+        std::string getIdeas(int i);
 };
 
-Brain::Brain()
-{
-}
-
-Brain::~Brain()
-{
-}
 
 
 #endif
