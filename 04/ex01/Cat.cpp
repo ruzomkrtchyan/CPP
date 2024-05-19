@@ -27,7 +27,7 @@ Cat& Cat:: operator=(const Cat &other)
 
 Cat::~Cat()
 {
-    std::cout << "Cat destructot called" << std::endl;
+    std::cout << "Cat destructor called" << std::endl;
     delete head;
 }
 
