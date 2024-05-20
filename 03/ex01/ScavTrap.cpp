@@ -13,7 +13,7 @@ ScavTrap::ScavTrap(std::string name):ClapTrap(name)
 	Attack_damage = 20;
 }
 
-ScavTrap::ScavTrap(ScavTrap &other)
+ScavTrap::ScavTrap(const ScavTrap &other)
 {
 	std::cout << "ScavTrap Copy consrtuctor called" << std::endl;
 	this->name = other.name;
@@ -22,7 +22,7 @@ ScavTrap::ScavTrap(ScavTrap &other)
 	Attack_damage = other.Attack_damage;
 }
 
-ScavTrap& ScavTrap:: operator=(ScavTrap &other)
+ScavTrap& ScavTrap:: operator=(const ScavTrap &other)
 {
 	std::cout << "ScavTrap Copy assignment operator called" << std::endl;
 	if (this != &other)

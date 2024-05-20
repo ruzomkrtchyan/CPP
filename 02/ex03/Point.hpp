@@ -18,7 +18,7 @@ class Point
 		float gety() const;
 };
 
-Fixed a_bs(Fixed n);
+Fixed abs(Fixed n);
 Fixed area(Point const a, Point const b, Point const c);
 bool bsp( Point const a, Point const b, Point const c, Point const point);
 

@@ -38,10 +38,10 @@ class Fixed
 		Fixed operator--();
 		Fixed operator--(int);
 
-		static const Fixed max(const Fixed &num1,const Fixed &num2);
-		static const Fixed min(const Fixed &num1,const Fixed &num2);
-		Fixed max(Fixed &num1, Fixed &num2);
-		Fixed min(Fixed &num1, Fixed &num2);
+		static const Fixed& max(const Fixed &num1,const Fixed &num2);
+		static const Fixed& min(const Fixed &num1,const Fixed &num2);
+		static Fixed& max(Fixed &num1, Fixed &num2);
+		static Fixed& min(Fixed &num1, Fixed &num2);
 
 
 
