@@ -48,6 +48,12 @@
 		"tuple": "cpp",
 		"type_traits": "cpp",
 		"typeinfo": "cpp",
-		"utility": "cpp"
+		"utility": "cpp",
+		"__functional_base_03": "cpp",
+		"__hash_table": "cpp",
+		"array": "cpp",
+		"chrono": "cpp",
+		"filesystem": "cpp",
+		"ratio": "cpp"
 	}
 }
