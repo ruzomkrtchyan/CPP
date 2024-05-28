@@ -54,6 +54,17 @@
 		"array": "cpp",
 		"chrono": "cpp",
 		"filesystem": "cpp",
-		"ratio": "cpp"
+		"ratio": "cpp",
+		"__node_handle": "cpp",
+		"__split_buffer": "cpp",
+		"complex": "cpp",
+		"deque": "cpp",
+		"fstream": "cpp",
+		"iomanip": "cpp",
+		"optional": "cpp",
+		"sstream": "cpp",
+		"stack": "cpp",
+		"unordered_map": "cpp",
+		"vector": "cpp"
 	}
 }

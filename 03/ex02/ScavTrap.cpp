@@ -3,6 +3,10 @@
 ScavTrap::ScavTrap()
 {
 	std::cout << "ScavTrap default constructor called" << std::endl;
+	name = "def";
+	Hit_p = 100;
+	Energy_p = 50;
+	Attack_damage = 20;
 }
 
 ScavTrap::ScavTrap(std::string name):ClapTrap(name)

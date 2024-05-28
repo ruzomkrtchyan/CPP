@@ -1,13 +1,13 @@
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap():name("Meow"), Hit_p(10), Energy_p(10), Attack_damage(0)
+ClapTrap::ClapTrap():name("meow"), Hit_p(10), Energy_p(10), Attack_damage(0)
 {
 	std::cout << "ClapTrap Default constructor called" << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string name):name(name)
 {
-	std::cout << "ClapTrap Init constructor called" << std::endl;
+	std::cout << "ClapTrap Name Init constructor called" << std::endl;
 	Hit_p = 10;
 	Energy_p = 10;
 	Attack_damage = 0;
@@ -15,7 +15,7 @@ ClapTrap::ClapTrap(std::string name):name(name)
 
 ClapTrap::ClapTrap(const ClapTrap &other)
 {
-	std::cout << "Copy consrtuctor called" << std::endl;
+	std::cout << "ClapTrap Copy consrtuctor called" << std::endl;
 	this->name = other.name;
 	Hit_p = other.Hit_p;
 	Energy_p = other.Energy_p;
@@ -24,7 +24,7 @@ ClapTrap::ClapTrap(const ClapTrap &other)
 
 ClapTrap& ClapTrap:: operator=(const ClapTrap &other)
 {
-	std::cout << "Copy assignment operator called" << std::endl;
+	std::cout << "ClapTrap Copy assignment operator called" << std::endl;
 	if (this != &other)
 	{
 		this->name = other.name;
@@ -59,10 +59,21 @@ void ClapTrap::attack(const std::string& target)
 
 void ClapTrap::takeDamage(unsigned int amount)
 {
+	if (static_cast<int>(amount) < 0)
+	{
+		std::cout << "Wrong amount!" << std::endl;
+		return ;
+	}
 	if (Hit_p && Energy_p)
 	{
+		if (amount > Hit_p)
+		{
+			Hit_p = 0;
+			std::cout << "You are dead 🔫 can't be done anything else." << std::endl;
+			return ;
+		}
 		Hit_p -= amount;
-		std::cout << name << " was damaged and lost " << amount << " hit points." << std::endl;
+		std::cout << "ClapTrack " << name << " was damaged and lost " << amount << " hit points." << std::endl;
 		if (Hit_p > 0)
 		{
 			std::cout << "Now " << name << " has " << Hit_p << " hit points." << std::endl;
@@ -75,9 +86,14 @@ void ClapTrap::takeDamage(unsigned int amount)
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
+	if (static_cast<int>(amount) < 0)
+	{
+		std::cout << "Wrong amount!" << std::endl;
+		return ;
+	}
 	if (Hit_p && Energy_p)
 	{
-		std::cout << this->name << " gets " << amount << " hit points back" << std::endl;
+		std::cout << "ClapTrap " << this->name << " gets " << amount << " hit points back" << std::endl;
 		Hit_p += amount;
 		Energy_p--;
 		if (Energy_p > 0)

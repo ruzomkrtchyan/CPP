@@ -6,6 +6,9 @@ int main()
     // ScavTrap ankap;
 
     // ankap.attack("Shnik");
+    // ankap.guardGate();
+    // ankap.takeDamage(9);
+    // ankap.takeDamage(98);
     robo.attack("Odz");
     robo.attack("Hav");
     robo.takeDamage(5);
