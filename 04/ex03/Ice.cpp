@@ -1,20 +1,24 @@
 #include "Ice.hpp"
 
-Ice::Ice():Amateria("ice")
+Ice::Ice():AMateria("ice")
 {}
 
-Ice::Ice(const Ice& other): Amateria(other)
+Ice::Ice(const Ice& other): AMateria(other)
 {}
 
-Ice& operator=(const Ice& other): Amateria operator=(other)
-{}
-
-~Ice()
-{}
-
-AMateria* Amateria::clone() const
+Ice& Ice:: operator=(const Ice& other)
 {
-    Amateria *obj = new Ice();
+    if(this != &other)
+        type = other.type;
+    return(*this);
+}
+
+Ice::~Ice()
+{}
+
+AMateria* Ice::clone() const
+{
+    AMateria *obj = new Ice();
     return (obj);
 }
 

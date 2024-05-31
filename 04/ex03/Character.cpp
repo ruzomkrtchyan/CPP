@@ -4,10 +4,9 @@ Character::Character():name("def")
 {
     for (size_t i = 0; i < 4; i++)
         slot[i] = NULL;
-    
 }
 
-Character::Character(std::string name):this->name(name)
+Character::Character(std::string name):name(name)
 {
     for (size_t i = 0; i < 4; i++)
         slot[i] = NULL;
@@ -43,39 +42,34 @@ Character:: ~Character()
         delete slot[i];
 }
 
-std::string const & Character::getName()
+std::string const & Character::getName() const
 {
     return(name);
 }
         
 void Character::equip(AMateria* m)
 {
-    if (m)
+    for (size_t i = 0; i < 4; i++)
     {
-        for (size_t i = 0, i < 4, i++)
+        if (!slot[i])
         {
-            if (!slot[i])
-            {
-                slot[i] = m;
-                return ;
-            }
+            slot[i] = m;
+            return ;
         }
     }
 }
 
 void Character::unequip(int idx)
 {
-    if (slot[indx] && indx >= 0 && indx <= 3)
+    if (slot[idx] && idx >= 0 && idx <= 3)
     {
-        delete slot[indx];
-        slot[indx] = NULL;
+        delete slot[idx];
+        slot[idx] = NULL;
     }
 }
 
-void use(int idx, ICharacter& target)
+void Character::use(int idx, ICharacter& target)
 {
-    if (slot[indx] && indx >= 0 && indx <= 3)
-    {
-        slot[indx]->use(target);
-    }
+    if (slot[idx] && idx >= 0 && idx <= 3)
+        slot[idx]->use(target);
 }

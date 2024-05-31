@@ -3,7 +3,7 @@
 AMateria::AMateria():type("def")
 {}
 
-AMateria::AMateria(std::string const & type):this->type(type)
+AMateria::AMateria(std::string const & type) : type(type)
 {}
 
 AMateria::AMateria(const AMateria& other)
@@ -26,7 +26,8 @@ std::string const & AMateria::getType() const
     return(type);
 }
 
-void use(ICharacter& target)
+void AMateria::use(ICharacter& target)
 {
+    (void)target;
     std::cout << "Something in AMateria" << std::endl;
 }

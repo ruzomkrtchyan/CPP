@@ -1,20 +1,24 @@
 #include "Cure.hpp"
 
-Cure::Cure():Amateria("cure")
+Cure::Cure():AMateria("cure")
 {}
 
-Cure::Cure(const Cure& other): Amateria(other)
+Cure::Cure(const Cure& other): AMateria(other)
 {}
 
-Cure& operator=(const Cure& other): Amateria operator=(other)
-{}
-
-~Cure()
-{}
-
-AMateria* Amateria::clone() const
+Cure& Cure:: operator=(const Cure& other)
 {
-    Amateria *obj = new Cure();
+   if(this != &other)
+        type = other.type;
+    return(*this);
+}
+
+Cure::~Cure()
+{}
+
+AMateria* Cure::clone() const
+{
+    AMateria *obj = new Cure();
     return (obj);
 }
 

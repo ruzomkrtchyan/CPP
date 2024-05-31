@@ -1,7 +1,7 @@
 #ifndef Cure_HPP
 #define Cure_HPP
 
-#include "Amateria.hpp"
+#include "AMateria.hpp"
 
 class Cure : public AMateria
 {
