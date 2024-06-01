@@ -7,9 +7,10 @@ Dog::Dog()
     head = new Brain;
 }
 
-Dog::Dog(const Dog &other):type(other.type)
+Dog::Dog(const Dog &other)
 {
     std::cout << "Dog copy constructor called" << std::endl;
+    type = other.type;
     *(head) = *(other.head);
 }
 

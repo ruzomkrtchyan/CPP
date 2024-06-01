@@ -6,9 +6,10 @@ Cat::Cat()
     type = "Cat";
 }
 
-Cat::Cat(const Cat &other):type(other.type)
+Cat::Cat(const Cat &other)
 {
     std::cout << "Cat copy constructor called" << std::endl;
+    type = other.type;
 }
 
 Cat& Cat:: operator=(const Cat &other)
@@ -21,7 +22,7 @@ Cat& Cat:: operator=(const Cat &other)
 
 Cat::~Cat()
 {
-    std::cout << "Cat destructot called" << std::endl;
+    std::cout << "Cat destructor called" << std::endl;
 }
 
 std::string Cat::getType() const

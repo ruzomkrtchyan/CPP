@@ -7,9 +7,10 @@ Cat::Cat()
     head = new Brain;
 }
 
-Cat::Cat(const Cat &other):type(other.type)
+Cat::Cat(const Cat &other)
 {
     std::cout << "Cat copy constructor called" << std::endl;
+    type = other.type;
     *(head) = *(other.head);
 }
 

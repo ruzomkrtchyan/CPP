@@ -6,9 +6,10 @@ WrongCat::WrongCat()
     type = "WrongCat";
 }
 
-WrongCat::WrongCat(const WrongCat &other):type(other.type)
+WrongCat::WrongCat(const WrongCat &other)
 {
     std::cout << "WrongCat copy constructor called" << std::endl;
+    type = other.type;
 }
 
 WrongCat& WrongCat:: operator=(const WrongCat &other)
@@ -21,7 +22,7 @@ WrongCat& WrongCat:: operator=(const WrongCat &other)
 
 WrongCat::~WrongCat()
 {
-    std::cout << "WrongCat destructot called" << std::endl;
+    std::cout << "WrongCat destructor called" << std::endl;
 }
 
 std::string WrongCat::getType() const

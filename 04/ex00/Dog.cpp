@@ -6,9 +6,10 @@ Dog::Dog()
     type = "Dog";
 }
 
-Dog::Dog(const Dog &other):type(other.type)
+Dog::Dog(const Dog &other)
 {
     std::cout << "Dog copy constructor called" << std::endl;
+    type = other.type;
 }
 
 Dog& Dog:: operator=(const Dog &other)
@@ -21,7 +22,7 @@ Dog& Dog:: operator=(const Dog &other)
 
 Dog::~Dog()
 {
-    std::cout << "Dog destructot called" << std::endl;
+    std::cout << "Dog destructor called" << std::endl;
 }
 
 std::string Dog::getType() const
