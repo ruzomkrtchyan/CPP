@@ -3,7 +3,7 @@
 
 #include "WrongAnimal.hpp"
 
-class WrongCat : public virtual WrongAnimal 
+class WrongCat : public WrongAnimal
 {
     protected:
         std::string type;

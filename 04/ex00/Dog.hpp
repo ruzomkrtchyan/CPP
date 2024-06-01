@@ -3,7 +3,7 @@
 
 #include "Animal.hpp"
 
-class Dog : public virtual Animal 
+class Dog : public Animal
 {
     protected:
         std::string type;

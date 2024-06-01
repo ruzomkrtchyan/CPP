@@ -40,3 +40,8 @@ void Cat::makeSound() const
 {
     std::cout << "Meoow meooow!" << std::endl;
 }
+
+Brain* Cat::getBrain() const
+{
+    return head;
+}
