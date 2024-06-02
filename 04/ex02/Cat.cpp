@@ -11,6 +11,7 @@ Cat::Cat(const Cat &other)
 {
     std::cout << "Cat copy constructor called" << std::endl;
     type = other.type;
+    head = new Brain();
     *(head) = *(other.head);
 }
 
@@ -20,6 +21,7 @@ Cat& Cat:: operator=(const Cat &other)
     if (this != &other)
     {
         type = other.type;
+        delete head;
         head = new Brain;
         *(head) = *(other.head);
     }

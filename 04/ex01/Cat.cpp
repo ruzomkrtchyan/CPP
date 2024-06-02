@@ -4,13 +4,14 @@ Cat::Cat()
 {
     std::cout << "Cat default constructor called" << std::endl;
     type = "Cat";
-    head = new Brain;
+    head = new Brain();
 }
 
 Cat::Cat(const Cat &other)
 {
     std::cout << "Cat copy constructor called" << std::endl;
     type = other.type;
+    head = new Brain();
     *(head) = *(other.head);
 }
 
@@ -20,7 +21,8 @@ Cat& Cat:: operator=(const Cat &other)
     if (this != &other)
     {
         type = other.type;
-        head = new Brain;
+        delete head;
+        head = new Brain();
         *(head) = *(other.head);
     }
     return (*this);
