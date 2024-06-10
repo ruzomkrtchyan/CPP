@@ -65,7 +65,19 @@ void Bureaucrat::decrement()
 	if (grade > 150)
 		throw GradeTooLowException();
 }
-std::ostream& operator<<(std::ostream &os, const Bureaucrat person)
+
+void Bureaucrat::signForm(Form &paper)
+{
+	if (paper.get_issigned())
+		std::cout << "Bureaucrat " << name << " signed " << paper.getname() << " form." << std::endl;
+	else
+	{
+		std::cout << "Bureaucrat " << name << " couldn't sign the form " << paper.getname() << " because ";
+		throw GradeTooLowException();
+	}
+}
+
+std::ostream& operator<<(std::ostream &os, const Bureaucrat &person)
 {
 	os << person.getName() << "," << " bureaucrat grade " << person.getGrade();
 	return (os);

@@ -6,16 +6,14 @@ int main()
 
 	try
 	{
-		Bureaucrat mard1("Mesrop", 150);
-		mard1.decrement();
-		mard1.increment();
-		Bureaucrat mard2("Poxos", 1);
-		mard2.increment();
+		Bureaucrat mard1("Mesrop", 120);
+		Form paper("Work", 150, 50);
+		paper.beSigned(mard1);
+		mard1.signForm(paper);
+		std::cout << "meow" << std::endl;
 	}
 	catch(const std::exception& e)
 	{
 		std::cerr << e.what() << std::endl;
 	}
-
-
 }
