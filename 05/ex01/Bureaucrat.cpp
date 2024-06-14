@@ -73,7 +73,7 @@ void Bureaucrat::signForm(Form &paper)
 	else
 	{
 		std::cout << "Bureaucrat " << name << " couldn't sign the form " << paper.getname() << " because ";
-		throw GradeTooLowException();
+		std::cout << "the grade is too low!" << std::endl;
 	}
 }
 
