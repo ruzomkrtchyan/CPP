@@ -36,8 +36,6 @@ AForm* Intern::pmake(std::string target)
     return new PresidentialPardonForm(target);
 }
 
-// enum class f_name{};
-
 AForm* Intern::makeForm(std::string fname, std::string target)
 {
     int i = 0;
@@ -51,14 +49,4 @@ AForm* Intern::makeForm(std::string fname, std::string target)
         exit (0);    
     }
     return (this->*fptr[i])(target);
-//    switch (fname)
-//    {
-//         case : 
-//             return new ShrubberyCreationForm(target);
-//         case : 
-//             return new 
-   
-//         default:
-//             break;
-//    }
 }
