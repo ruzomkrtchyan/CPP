@@ -5,28 +5,28 @@ Bureaucrat::Bureaucrat():name("def"), grade(1)
 
 Bureaucrat::Bureaucrat(const std::string _name, int _grade):name(_name)
 {
-	grade = _grade;
-	if (grade < 1)
+	if (_grade < 1)
 		throw GradeTooHighException();
-	if (grade > 150)
+	if (_grade > 150)
 		throw GradeTooLowException();
+	grade = _grade;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat& other):name(other.name)
 {
-	grade = other.grade;
-	if (grade < 1)
+	if (other.grade < 1)
 		throw GradeTooHighException();
-	if (grade > 150)
+	if (other.grade > 150)
 		throw GradeTooLowException();
+	grade = other.grade;
 }
 Bureaucrat& Bureaucrat:: operator=(const Bureaucrat& other)
 {
-	grade = other.grade;
-	if (grade < 1)
+	if (other.grade < 1)
 		throw GradeTooHighException();
-	if (grade > 150)
+	if (other.grade > 150)
 		throw GradeTooLowException();
+	grade = other.grade;
 	return(*this);
 }
 
@@ -46,9 +46,9 @@ int Bureaucrat::getGrade() const
 
 void Bureaucrat::increment()
 {
-	grade--;
-	if (grade < 1)
+	if (grade - 1 < 1)
 		throw GradeTooHighException();
+	grade--;
 }
 const char* Bureaucrat::GradeTooHighException::what() const throw()
 {
@@ -61,19 +61,23 @@ const char* Bureaucrat::GradeTooLowException::what() const throw()
 }
 void Bureaucrat::decrement()
 {
-	grade++;
-	if (grade > 150)
+	if (grade + 1 > 150)
 		throw GradeTooLowException();
+	grade++;
 }
 
 void Bureaucrat::signForm(Form &paper)
 {
-	if (paper.get_issigned())
-		std::cout << "Bureaucrat " << name << " signed " << paper.getname() << " form." << std::endl;
-	else
+	try
+	{
+		paper.beSigned(*this);
+		if (paper.get_issigned())
+			std::cout << "Bureaucrat " << name << " signed " << paper.getname() << " form." << std::endl;
+	}
+	catch (const std::exception& e)
 	{
 		std::cout << "Bureaucrat " << name << " couldn't sign the form " << paper.getname() << " because ";
-		std::cout << "the grade is too low!" << std::endl;
+		std::cerr << e.what() << '\n';
 	}
 }
 

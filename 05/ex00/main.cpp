@@ -2,8 +2,6 @@
 
 int main()
 {
-	// std::cout << mard1 << std::endl;
-
 	try
 	{
 		Bureaucrat mard1("Mesrop", 150);
@@ -16,6 +14,4 @@ int main()
 	{
 		std::cerr << e.what() << std::endl;
 	}
-
-
 }

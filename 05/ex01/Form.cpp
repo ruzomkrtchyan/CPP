@@ -1,28 +1,29 @@
 #include "Form.hpp"
 
-Form::Form():name("def"), is_signed(0), grade(1), ex_grade(1)
+Form::Form():name("def"), is_signed(false), grade(1), ex_grade(1)
 {
 }
 
 Form::Form(const std::string name, const int grade, const int ex_grade):name(name), grade(grade), ex_grade(ex_grade)
 {
-	is_signed = 0;
 	if (grade < 1 || ex_grade < 1)
 		throw GradeTooHighException();
 	if (grade > 150 || ex_grade > 150)
 		throw GradeTooLowException();
+	is_signed = false;
 }
 Form::Form(const Form& other):name(other.name), grade(other.grade), ex_grade(other.ex_grade)
 {
-	is_signed = other.is_signed;
 	if (grade < 1 || ex_grade < 1)
 		throw GradeTooHighException();
 	if (grade > 150 || ex_grade > 150)
 		throw GradeTooLowException();
+	is_signed = other.is_signed;
 }
 Form& Form::operator=(const Form& other)
 {
-	(void) other;
+	if (this != &other)
+		this->is_signed = other.is_signed;
 	return(*this);
 }
 
@@ -63,7 +64,7 @@ bool Form::get_issigned() const
 void Form::beSigned(Bureaucrat &person)
 {
 	if (person.getGrade() <= grade)
-		is_signed = 1;
+		is_signed = true;
 	else
 		throw GradeTooLowException();
 }

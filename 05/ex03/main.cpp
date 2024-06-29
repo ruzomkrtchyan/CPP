@@ -6,8 +6,6 @@
 
 int main()
 {
-	// std::cout << mard1 << std::endl;
-
 	try
 	{
 		Bureaucrat mard1("Mesrop", 4);
@@ -35,8 +33,11 @@ int main()
 	Intern  someRandomIntern;
 	Intern	someRandomIntern2;
 
-    AForm*   rrf;
+	AForm*	rrf;
 	AForm*	shf;
-    rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+	rrf = someRandomIntern.makeForm("robot omy request", "Bender");
 	shf = someRandomIntern2.makeForm("presidential pardon", "Jack");
+
+	delete rrf;
+	delete shf;
 }
