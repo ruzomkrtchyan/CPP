@@ -1,6 +1,10 @@
 #ifndef ABC_HPP
 #define ABC_HPP
 
+#include <cstdlib>
+#include <iostream>
+#include <ctime>
+
 class Base
 {
 	public:

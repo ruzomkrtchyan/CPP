@@ -1,4 +1,4 @@
-NAME			= serializer
+NAME			= abc
 SRCS			= $(wildcard *.cpp)
 OBJ_DIR			= obj
 HEADER			= $(wildcard *.hpp)
