@@ -25,7 +25,7 @@ Array<T>::Array(const Array& other)
 }
 
 template<typename T>
-Array& Array<T>::operator=(const Array& other)
+Array<T>& Array<T>::operator=(const Array<T>& other)
 {
 	if (this != &other)
 	{
@@ -52,7 +52,7 @@ unsigned int Array<T>::size()
 }
 
 template<typename T>
-T& operator[](unsigned int ind) //const?
+T&  Array<T>::operator[](unsigned int ind) //const?
 {
 	if (ind < _size)
 		return (arr[ind]);

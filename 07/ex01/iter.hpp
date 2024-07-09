@@ -3,7 +3,7 @@
 
 #include <iostream>
 
-template <typename T> void print(T const &value)
+template <typename T> void print(const T &value)
 {
 	std::cout << value << std::endl;
 }
@@ -14,7 +14,7 @@ template <typename T> void iter(T* arr, size_t length, void (*f)(T&))
 		f(arr[i]);
 }
 
-template <typename T> void iter(T* arr, size_t length, void (*f)(T const &))
+template <typename T> void iter(T* arr, size_t length, void (*f)(const T &))
 {
 	for (size_t i  = 0; i < length; i++)
 		f(arr[i]);

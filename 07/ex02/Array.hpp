@@ -12,12 +12,12 @@ template <class T> class Array
         Array();
         Array(unsigned int n);
         Array(const Array& other);
-        Array& operator=(const Array& other);
+        Array<T>& operator=(const Array<T>& other);
         ~Array();
 
         unsigned int size();
         T& operator[](unsigned int ind);
-}
+};
 
 #include "Array.tpp"
 
