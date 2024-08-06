@@ -20,6 +20,7 @@ private:
 public:
 	static void storingdata(std::string data);
 	static bool is_valid_data(std::string data);
+	static bool is_valid_val(std::string value);
 	static void Bitcoin_exchange(std::string input);
 	static void Bitcoin_price(std::string data, float value);
 

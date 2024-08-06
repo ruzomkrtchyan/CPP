@@ -28,6 +28,8 @@ void BitcoinExchange::storingdata(std::string data)
 	std::string line;
 	while(std::getline(file,line))
 	{
+		if(!line.compare("date,exchange_rate"))
+			continue;
 		std::size_t delim = line.find(",");
 		if (delim == std::string::npos)
 			throw std::runtime_error("Bad data format.");
@@ -68,6 +70,23 @@ bool BitcoinExchange::is_valid_data(std::string data)
 	return true;
 }
 
+bool BitcoinExchange::is_valid_val(std::string value)
+{
+	if (value[0] != ' ')
+		return false;
+	int dot = 0;
+	for(size_t i = 1; i < value.size(); ++i)
+	{
+		if (value[i] == '.')
+		{
+			dot++;
+			i++;
+		}
+		if(!std::isdigit(value[i]) || dot > 1)
+			return false;
+	}
+	return true;
+}
 void BitcoinExchange::Bitcoin_price(std::string data, float value)
 {
 	map_it it = data_map.lower_bound(data);
@@ -84,17 +103,28 @@ void BitcoinExchange::Bitcoin_price(std::string data, float value)
 void BitcoinExchange::Bitcoin_exchange(std::string input)
 {
 	std::ifstream file(input);
+	int fl = 0;
 
 	if(!file.is_open())
 		throw std::ios_base::failure("Failed to open the input file.");
 	std::string line;
 	while(std::getline(file,line))
 	{
+		if (!line.compare("date | value") && fl != 1)
+		{
+			fl = 1;
+			continue;
+		}
 		std::size_t delim = line.find("|");
 		std::string data = line.substr(0, delim - 1);
-		if (delim == std::string::npos || delim + 1 >= line.size() || !is_valid_data(data))
+		if (delim == std::string::npos || !is_valid_data(data))
 		{
 			std::cerr << "Error: bad input => " << data <<std::endl;
+			continue;
+		}
+		if (delim + 1 >= line.size() || !is_valid_val(line.substr(delim + 1)))
+		{
+			std::cerr << "Error: bad value => " << line.substr(delim + 1) <<std::endl;
 			continue;
 		}
 		float value = std::strtod(line.substr(delim + 2).c_str(), NULL);
@@ -110,5 +140,4 @@ void BitcoinExchange::Bitcoin_exchange(std::string input)
 		}
 		Bitcoin_price(data, value);
 	}
-
 }
