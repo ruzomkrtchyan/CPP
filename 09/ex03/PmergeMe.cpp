@@ -1,23 +1,23 @@
 #include "PmergeMe.hpp"
 
-PmergeMe::PmergeMe(/* args */)
+PmergeMe::PmergeMe()
 {
 }
 
 PmergeMe::PmergeMe(const PmergeMe &other)
 {
+	*this = other;
 }
 
 PmergeMe& PmergeMe::operator=(const PmergeMe &other)
 {
+	if (this != &other)
+	{
+		deq = other.deq;
+		vect = other.vect;
+	}
+	return *this;
 }
 
 PmergeMe::~PmergeMe()
-{
-}
-
-template <typename T>
-T PmergeMe::insert_merge(T container)
-{
-	
-}
+{}
