@@ -1,5 +1,26 @@
 #include "PmergeMe.hpp"
-#include <cstring>
+
+PmergeMe::PmergeMe()
+{
+}
+
+PmergeMe::PmergeMe(const PmergeMe &other)
+{
+	*this = other;
+}
+
+PmergeMe& PmergeMe::operator=(const PmergeMe &other)
+{
+	if (this != &other)
+	{
+		deq = other.deq;
+		vect = other.vect;
+	}
+	return *this;
+}
+
+PmergeMe::~PmergeMe()
+{}
 
 void PmergeMe::valid_input(int argc, char **argv)
 {
@@ -37,27 +58,4 @@ void PmergeMe::timer()
 	std::cout << "Time to process a range of " << deq.size() <<" elements with std::deque : ";
 	std::cout << m_sec << " microseconds." << std::endl;
 
-}
-
-int main(int argc, char **argv)
-{
-	if (argc == 1)
-	{
-		std::cerr << "Need a positive integer sequence." << std::endl;
-		return 1;
-	}
-	try 
-	{
-		PmergeMe obj;
-		obj.valid_input(argc - 1, argv + 1);
-		std::cout << "Before: ";
-		for (int i = 1; i < argc; i++)
-			std::cout << argv[i] << " ";
-		std::cout << std::endl;
-		obj.timer();
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
 }

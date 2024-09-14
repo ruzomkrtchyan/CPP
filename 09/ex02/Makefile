@@ -5,7 +5,7 @@ HEADER			= $(wildcard *.hpp)
 OBJS			= $(patsubst %.cpp, $(OBJ_DIR)/%.o, $(SRCS))
 CC				= c++ 
 RM				= rm -rf
-CFLAGS			= -Wall -Wextra -Werror -std=c++98 #-g -fsanitize=address
+CFLAGS			= -Wall -Wextra -Werror -std=c++98
 MK				= mkdir -p
 
 all:			$(OBJ_DIR) $(NAME)

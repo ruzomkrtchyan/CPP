@@ -21,7 +21,7 @@ BitcoinExchange::~BitcoinExchange()
 
 void BitcoinExchange::storingdata(std::string data)
 {
-	std::ifstream file(data);
+	std::ifstream file(data.c_str());
 
 	if(!file.is_open())
 		throw std::ios_base::failure("Failed to open the file.");
@@ -102,7 +102,7 @@ void BitcoinExchange::Bitcoin_price(std::string data, float value)
 
 void BitcoinExchange::Bitcoin_exchange(std::string input)
 {
-	std::ifstream file(input);
+	std::ifstream file(input.c_str());
 	int fl = 0;
 
 	if(!file.is_open())

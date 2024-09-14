@@ -66,6 +66,11 @@
 		"stack": "cpp",
 		"unordered_map": "cpp",
 		"vector": "cpp",
-		"__functional_03": "cpp"
+		"__functional_03": "cpp",
+		"__memory": "cpp",
+		"*.tpp": "cpp",
+		"list": "cpp",
+		"__tree": "cpp",
+		"map": "cpp"
 	}
 }

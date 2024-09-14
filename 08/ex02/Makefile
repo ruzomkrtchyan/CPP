@@ -1,4 +1,4 @@
-NAME			= convert
+NAME			= mutant
 SRCS			= $(wildcard *.cpp)
 OBJ_DIR			= obj
 HEADER			= $(wildcard *.hpp)

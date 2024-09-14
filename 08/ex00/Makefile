@@ -1,4 +1,4 @@
-NAME			= convert
+NAME			= easyfind
 SRCS			= $(wildcard *.cpp)
 OBJ_DIR			= obj
 HEADER			= $(wildcard *.hpp)
